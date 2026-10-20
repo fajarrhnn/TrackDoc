@@ -93,10 +93,6 @@ export function ProfilScreen() {
           </svg>
           Keluar
         </Hotspot>
-
-        <p className="mt-4 text-center text-[11px] text-slate-400">
-          Document Digital v1.0.0 Prototype · Sesi #AT-2025-10-18
-        </p>
       </div>
 
       <BottomNav active="profil" />

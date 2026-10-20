@@ -13,7 +13,7 @@ export function LoginScreen() {
             <path d="M14 3v4h4M9 13h6M9 17h4" stroke="white" strokeWidth="1.8" strokeLinecap="round" />
           </svg>
         </div>
-        <h1 className="mt-5 text-2xl font-bold text-slate-900">Document Digital</h1>
+        <h1 className="mt-5 text-2xl font-bold text-slate-900">TracDoc</h1>
         <p className="mt-1 text-sm text-slate-500">Aplikasi Pengelolaan Surat Jalan</p>
       </div>
 
