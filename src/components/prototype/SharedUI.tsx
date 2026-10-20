@@ -162,7 +162,7 @@ export function BottomNav({ active }: BottomNavProps) {
   ];
 
   return (
-    <div className="absolute bottom-0 left-0 right-0 z-30 border-t border-slate-200/80 bg-white/95 px-3 pb-6 pt-2 backdrop-blur-md">
+    <div className="sticky bottom-0 left-0 right-0 z-30 border-t border-slate-200/80 bg-white/95 px-3 pb-6 pt-2 backdrop-blur-md">
       <div className="relative flex items-end justify-between">
         {items.slice(0, 2).map((it) => (
           <NavItem key={it.key} item={it} active={active === it.key} />

@@ -88,14 +88,6 @@ export function LoginScreen() {
           </svg>
         </Hotspot>
       </div>
-
-      {/* Footer info */}
-      <div className="mt-auto pt-8 text-center">
-        <p className="text-xs text-slate-400">
-          Dengan masuk, Anda menyetujui Syarat & Ketentuan
-        </p>
-        <p className="mt-1 text-xs text-slate-400">Document Digital · v1.0.0 Prototype</p>
-      </div>
     </ScreenShell>
   );
 }
