@@ -5,12 +5,10 @@ import { ScreenId } from "@/lib/prototype-data";
 import { cn } from "@/lib/utils";
 
 interface PrototypeContextValue {
-  showHotspots: boolean;
   navigate: (screen: ScreenId) => void;
 }
 
 export const PrototypeContext = createContext<PrototypeContextValue>({
-  showHotspots: false,
   navigate: () => {},
 });
 
@@ -28,54 +26,32 @@ interface HotspotProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "on
 
 /**
  * Hotspot - elemen yang bisa diklik untuk navigasi antar layar.
- * Saat showHotspots aktif, muncul badge bernomor di pojok.
+ * Badge bernomor dinonaktifkan; elemen tetap berfungsi sebagai area klik.
  */
 export function Hotspot({
   hotspot,
   target,
-  badgePosition = "top-right",
-  badgeClassName,
+  badgePosition: _badgePosition,
+  badgeClassName: _badgeClassName,
   children,
   className,
   asArea = false,
   ...rest
 }: HotspotProps) {
-  const { showHotspots, navigate } = usePrototype();
-
-  const badgePos: Record<string, string> = {
-    "top-left": "left-1 top-1",
-    "top-right": "right-1 top-1",
-    "bottom-left": "left-1 bottom-1",
-    "bottom-right": "right-1 bottom-1",
-    center: "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
-  };
+  const { navigate } = usePrototype();
 
   return (
     <button
       type="button"
       onClick={() => navigate(target)}
       className={cn(
-        "relative transition",
-        asArea
-          ? "block h-full w-full cursor-pointer text-left"
-          : "cursor-pointer",
-        showHotspots && "outline-2 outline-dashed outline-emerald-500 outline-offset-2 rounded-md",
+        "relative transition cursor-pointer",
+        asArea && "block h-full w-full cursor-pointer text-left",
         className,
       )}
       {...rest}
     >
       {children}
-      {showHotspots && (
-        <span
-          className={cn(
-            "hotspot-pulse pointer-events-none absolute z-30 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-[11px] font-bold text-white shadow-md shadow-emerald-500/40 ring-2 ring-white",
-            badgePos[badgePosition],
-            badgeClassName,
-          )}
-        >
-          {hotspot}
-        </span>
-      )}
     </button>
   );
 }

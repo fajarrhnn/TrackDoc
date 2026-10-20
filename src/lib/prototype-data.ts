@@ -2,7 +2,6 @@
 // Aplikasi Pengelolaan Surat Jalan
 
 export type ScreenId =
-  | "cover"
   | "01-login"
   | "02-dashboard"
   | "03-pencarian"
